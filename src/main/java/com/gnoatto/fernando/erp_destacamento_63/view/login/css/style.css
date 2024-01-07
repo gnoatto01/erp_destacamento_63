@@ -10,7 +10,7 @@ a {
 }
 
 #login {
-    
+
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -18,26 +18,26 @@ a {
     flex-direction: row;
 }
 
-.usuario input {
+#usuario input {
     border-radius: 47px;
-    border: none;
+    border-color: #000066;
     width: 367px;
     height: 34px;
     padding-left: 15px;
     color: black;
 }
 
-.senha input {
+#senha input {
     border-radius: 47px;
-    border: none;
     width: 367px;
     height: 34px;
     padding-left: 15px;
     color: black;
+    border-color: #000066;
     margin-top: 15px;
 }
 
-.entrar input {
+#entrar input {
     cursor: pointer;
     width: 365px;
     height: 34px;
@@ -48,14 +48,11 @@ a {
 }
 
 input::placeholder {
-    color:  #000066;
+    color: #000066;
 }
 
 .box {
-
     margin-top: 65px;
-
-
 }
 
 .box img {
