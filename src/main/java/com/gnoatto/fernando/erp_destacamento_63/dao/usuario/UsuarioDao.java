@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,6 +13,7 @@ import java.util.logging.Logger;
 import com.gnoatto.fernando.erp_destacamento_63.dao.ConexaoBanco;
 import com.gnoatto.fernando.erp_destacamento_63.dao.DaoGenerico;
 import com.gnoatto.fernando.erp_destacamento_63.model.usuario.Usuario;
+import com.gnoatto.fernando.util.HashUtil;
 
 public class UsuarioDao extends DaoGenerico<Usuario> {
 
@@ -74,16 +76,17 @@ public class UsuarioDao extends DaoGenerico<Usuario> {
 
     @Override
     public boolean inserirDados(Usuario entidade) {
-        String sql = " insert into usuario (usuario, senha, nome_completo, email, id_nivel_acesso, ativo) values (?,?,?,?,?,?) ";
+        String sql = " insert into usuario (usuario, senha,salt, nome_completo, email, id_nivel_acesso, ativo) values (?,?,?,?,?,?,?) ";
 
         try {
             stmt = conexaoBanco.prepareStatement(sql);
             stmt.setString(1, entidade.getUsuario());
-            stmt.setString(2, entidade.getSenha());
-            stmt.setString(3, entidade.getNomeCompleto());
-            stmt.setString(4, entidade.getEmail());
-            stmt.setInt(5, entidade.getIdNivelAcesso());
-            stmt.setString(6, entidade.getAtivo());
+            stmt.setString(2, HashUtil.stringToMd5(entidade.getSenha() + entidade.getSalt()));
+            stmt.setString(3, Calendar.getInstance().getTime().toString() + "#$%@");
+            stmt.setString(4, entidade.getNomeCompleto());
+            stmt.setString(5, entidade.getEmail());
+            stmt.setInt(6, entidade.getIdNivelAcesso());
+            stmt.setString(7, entidade.getAtivo());
             stmt.execute();
             logger.info("Dados gravados com sucesso...");
             return true;

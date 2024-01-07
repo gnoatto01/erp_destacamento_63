@@ -1,5 +1,6 @@
 create database erp_destacamento_63; 
 
+
 create table nivel_acesso(
 	id serial primary key, 
 	privilegio varchar (30) default 'Membro' not null,
@@ -14,7 +15,8 @@ insert into nivel_acesso (privilegio) values ('Super-Admin')
 create table usuario (
 	id serial primary key, 
 	usuario varchar (30) default '-' not null, 
-	senha varchar (30) default '-' not null, 
+	senha varchar (70) default '-' not null, 
+	salt varchar (70) default '-' not null,
 	nome_completo varchar (30) default '-' not null, 
 	email varchar (100) default '-' not null,
 	id_nivel_acesso int not null,
@@ -24,11 +26,12 @@ create table usuario (
 	
 );
 
-insert into usuario (usuario, senha, nome_completo, email, id_nivel_acesso, ativo) values ('destacamento63', 'Destac@mento63!@#', 'Destacamento 63',
-'destacamento63expdorei@gmail.com',3, 'Ativo')
 
 
-select * from usuario 
+
+
+
+
 
 
 

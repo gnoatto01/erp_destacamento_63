@@ -6,17 +6,20 @@ public class Usuario extends BaseCadastroAtivo {
 
     private String usuario;
     private String senha;
+    private String salt;
     private String nomeCompleto;
-    private String email; 
+    private String email;
     private int idNivelAcesso;
 
     public Usuario() {
 
     }
 
-    public Usuario(String usuario, String senha, String nomeCompleto, int idNivelAcesso) {
+    public Usuario(String usuario, String senha, String salt, String nomeCompleto, String email, int idNivelAcesso) {
         this.usuario = usuario;
         this.senha = senha;
+        this.salt = salt;
+        this.email = email;
         this.nomeCompleto = nomeCompleto;
         this.idNivelAcesso = idNivelAcesso;
     }
@@ -59,6 +62,20 @@ public class Usuario extends BaseCadastroAtivo {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    @Override
+    public String toString() {
+
+        return "Usuario: " + usuario;
     }
 
 }

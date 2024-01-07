@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
-    <title>Destacamento 63 Exploradores Do Rei</title>
+    <title>Destacamento 63</title>
 </head>
 
 <body>
@@ -14,16 +15,17 @@
             <img src="../images/logoDestacamento 1.png" alt="">
             <h1>LOGIN</h1>
             <div id="usuario">
-                <input type="text" id="campoUsuario" placeholder="Usuário">
+                <input type="text" id="campoUsuario" onchange="validarCampos()" placeholder="Usuário*">
             </div>
             <div id="senha">
-                <input type="password" id="campoSenha" placeholder="Senha">
+                <input type="password" id="campoSenha" placeholder="Senha*">
             </div>
             <div id="entrar">
                 <a href="#">
                     <p>Esqueceu sua senha?</p>
                 </a>
                 <input type="submit" id="btnEntrar" value="Entrar" onclick="">
+                <small id="textForm"></small>
             </div>
         </div>
     </div>
