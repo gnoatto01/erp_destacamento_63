@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ErpDestacamento63Application<erp_destacamento_63>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.gnoatto.fernando.erp_destacamento_63.ErpDestacamento63Application",
+            "projectName": "erp_destacamento_63",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

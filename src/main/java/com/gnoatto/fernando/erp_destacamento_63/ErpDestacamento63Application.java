@@ -8,6 +8,7 @@ public class ErpDestacamento63Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ErpDestacamento63Application.class, args);
+
 	}
 
 }

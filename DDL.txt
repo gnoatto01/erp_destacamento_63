@@ -1,0 +1,36 @@
+create database erp_destacamento_63; 
+
+create table nivel_acesso(
+	id serial primary key, 
+	privilegio varchar (30) default 'Membro' not null,
+	descricao varchar (100) default '-'
+);
+
+insert into nivel_acesso (privilegio) values ('Membro')
+insert into nivel_acesso (privilegio) values ('Administrador')
+insert into nivel_acesso (privilegio) values ('Super-Admin')
+
+
+create table usuario (
+	id serial primary key, 
+	usuario varchar (30) default '-' not null, 
+	senha varchar (30) default '-' not null, 
+	nome_completo varchar (30) default '-' not null, 
+	email varchar (100) default '-' not null,
+	id_nivel_acesso int not null,
+	ativo varchar (20) default 'Ativo' not null,
+	
+	foreign key (id_nivel_acesso) references nivel_acesso(id)
+	
+);
+
+insert into usuario (usuario, senha, nome_completo, email, id_nivel_acesso, ativo) values ('destacamento63', 'Destac@mento63!@#', 'Destacamento 63',
+'destacamento63expdorei@gmail.com',3, 'Ativo')
+
+
+select * from usuario 
+
+
+
+
+
