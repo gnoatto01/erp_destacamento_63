@@ -7,9 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gnoatto.fernando.erp_destacamento_63.dao.usuario.UsuarioDao;
 import com.gnoatto.fernando.erp_destacamento_63.model.usuario.Usuario;
-
-import dao.usuario.UsuarioDao;
 
 @Controller
 @RequestMapping("/usuarios")

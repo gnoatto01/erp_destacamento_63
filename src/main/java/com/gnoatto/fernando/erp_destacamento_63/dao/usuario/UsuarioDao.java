@@ -1,4 +1,4 @@
-package dao.usuario;
+package com.gnoatto.fernando.erp_destacamento_63.dao.usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,10 +9,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.gnoatto.fernando.erp_destacamento_63.dao.ConexaoBanco;
+import com.gnoatto.fernando.erp_destacamento_63.dao.DaoGenerico;
 import com.gnoatto.fernando.erp_destacamento_63.model.usuario.Usuario;
-
-import dao.ConexaoBanco;
-import dao.DaoGenerico;
 
 public class UsuarioDao extends DaoGenerico<Usuario> {
 

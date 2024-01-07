@@ -1,4 +1,4 @@
-package dao;
+package com.gnoatto.fernando.erp_destacamento_63.dao;
 
 import java.sql.ResultSet;
 import java.util.List;
