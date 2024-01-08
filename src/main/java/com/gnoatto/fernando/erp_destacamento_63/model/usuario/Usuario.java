@@ -10,18 +10,20 @@ public class Usuario extends BaseCadastroAtivo {
     private String nomeCompleto;
     private String email;
     private int idNivelAcesso;
+    private String ativo;
 
     public Usuario() {
 
     }
 
-    public Usuario(String usuario, String senha, String salt, String nomeCompleto, String email, int idNivelAcesso) {
+    public Usuario(String usuario, String senha, String salt, String nomeCompleto, String email, int idNivelAcesso, String ativo) {
         this.usuario = usuario;
         this.senha = senha;
         this.salt = salt;
         this.email = email;
         this.nomeCompleto = nomeCompleto;
         this.idNivelAcesso = idNivelAcesso;
+        this.ativo = ativo;
     }
 
     public String getUsuario() {
@@ -72,10 +74,13 @@ public class Usuario extends BaseCadastroAtivo {
         this.salt = salt;
     }
 
-    @Override
-    public String toString() {
-
-        return "Usuario: " + usuario;
+    public String getAtivo() {
+        return ativo;
     }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
+
 
 }

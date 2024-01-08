@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin(originPatterns = ("*"))
 @SpringBootApplication
-@ComponentScan(value = "com.gnoatto.fernando.erp_destacamento_63.controller.*")
+@ComponentScan(basePackages = "com.gnoatto.fernando")
 public class ErpDestacamento63Application {
 
 	public static void main(String[] args) {

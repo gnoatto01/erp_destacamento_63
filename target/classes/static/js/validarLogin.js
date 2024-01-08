@@ -33,7 +33,7 @@ botao.addEventListener('click', function logar() {
             }
 
             if (validaLogin) {
-                fetch('http://localhost:8080/home')
+                window.location.href = "http://localhost:8080/home";
             }
 
         })
