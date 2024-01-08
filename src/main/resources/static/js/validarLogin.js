@@ -19,23 +19,23 @@ botao.addEventListener('click', function logar() {
             }
 
             for (let i in usuarios) {
-
-                if(usuario == "" || senha == "") {
-                    alert("Preencha todos os campos...");
-                    break;
-                }
-
-                else if (usuario == usuarios[i].usuario && senha == usuarios[i].senha) {
+                if (usuario == usuarios[i].usuario && senha == usuarios[i].senha) {
                     validaLogin = true;
+                    document.getElementById("mensagem-erro").innerHTML = ("")
                     break;
+                } else {
+                    document.getElementById("mensagem-erro").innerHTML = ("Usuário ou senha incorretos!");
+                    validaLogin = false
+                    break;
+
                 }
 
             }
 
             if (validaLogin) {
-                alert('Logado com sucesso');
+                fetch('http://localhost:8080/home')
             }
-            
+
         })
         .catch(error => console.error('Erro na requisição:', error));
 });

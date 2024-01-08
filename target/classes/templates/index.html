@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org">
+
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" th:href="@{/images/favicon.png}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <title>Destacamento 63</title>
 </head>
 
 <body>
     <div id="login">
         <div class="box">
-            <img src="../images/logoDestacamento 1.png" alt="">
+            <img th:src="@{/images/logoDestacamento.png}">
             <h1>LOGIN</h1>
+            <div id="mensagem-erro"></div>
             <div id="usuario">
-                <input type="text" id="campoUsuario" onchange="validarCampos()" placeholder="Usuário*">
+                <input type="text" id="campoUsuario" placeholder="Usuário*">
             </div>
             <div id="senha">
                 <input type="password" id="campoSenha" placeholder="Senha*">
@@ -29,10 +31,7 @@
             </div>
         </div>
     </div>
-
-    <script src="validarLogin.js">
-
-    </script>
+    <script th:src="@{/js/validarLogin.js}" defer="defer"></script>
 </body>
 
 </html>
