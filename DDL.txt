@@ -26,6 +26,34 @@ create table usuario (
 	
 );
 
+create table candidato(
+	id serial primary key, 
+	nome_candidato varchar (50) default '-' not null, 
+	data_nascimento date default current_date not null, 
+	rg varchar (40) default '-' not null, 
+	cpf varchar (40) default '-' not null, 
+	nivel_escolar varchar (50) default '-' not null, 
+	instituicao_ensino varchar (50) default '-' not null, 
+	religiao varchar (30) default '-' not null, 
+	igreja_frequentada varchar (50) default '-' not null, 
+	nome_pastor varchar (50) default '-' not null, 
+	telefone varchar (30) default '-' not null, 
+	email varchar (100) default '-' not null,
+	alergias varchar (100) default 'Não' not null, 
+	disturbio varchar (100) default 'Não' not null, 
+	restricao_atividade_fisica varchar (100) default 'Não' not null, 
+	sabe_nadar varchar(10) default 'Não' not null, 
+	medicamento_continuo varchar(70) default 'Não' not null, 
+	tipo_sanguineo varchar(10) default '-' not null, 
+	fator_rh varchar (5) default '-' not null, 
+	plano_saude varchar (20) default '-' not null, 
+	hospital varchar (30) default '-' not null, 
+	informacao_adicional text default '-', 
+	carta_recomendacao varchar (255) default '-' not null, 
+	autorizacao_atividade_externa varchar (10) default 'Sim' not null, 
+	autorizacao_atividade_interna varchar (10) default 'Sim' not null 
+);
+
 
 
 

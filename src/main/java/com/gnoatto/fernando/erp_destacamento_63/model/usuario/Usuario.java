@@ -10,18 +10,20 @@ public class Usuario extends BaseCadastroAtivo {
     private String nomeCompleto;
     private String email;
     private int idNivelAcesso;
+
     private String ativo;
 
     public Usuario() {
 
     }
 
-    public Usuario(String usuario, String senha, String salt, String nomeCompleto, String email, int idNivelAcesso, String ativo) {
+    public Usuario(String usuario, String senha, String salt, String nomeCompleto, String email, int idNivelAcesso,
+            String ativo) {
         this.usuario = usuario;
         this.senha = senha;
         this.salt = salt;
-        this.email = email;
         this.nomeCompleto = nomeCompleto;
+        this.email = email;
         this.idNivelAcesso = idNivelAcesso;
         this.ativo = ativo;
     }
@@ -40,22 +42,6 @@ public class Usuario extends BaseCadastroAtivo {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getNomeCompleto() {
-        return nomeCompleto;
-    }
-
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
-    }
-
-    public int getIdNivelAcesso() {
-        return idNivelAcesso;
-    }
-
-    public void setIdNivelAcesso(int idNivelAcesso) {
-        this.idNivelAcesso = idNivelAcesso;
     }
 
     public String getEmail() {
@@ -82,5 +68,20 @@ public class Usuario extends BaseCadastroAtivo {
         this.ativo = ativo;
     }
 
+    public int getIdNivelAcesso() {
+        return idNivelAcesso;
+    }
+
+    public void setIdNivelAcesso(int idNivelAcesso) {
+        this.idNivelAcesso = idNivelAcesso;
+    }
+
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
+
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
 
 }

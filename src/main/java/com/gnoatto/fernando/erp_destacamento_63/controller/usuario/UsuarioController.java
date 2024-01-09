@@ -30,6 +30,13 @@ public class UsuarioController {
     }
     @PostMapping("/cadastrar")
     public boolean cadastrarUsuario(@RequestBody Usuario usuario){
+        usuario.setUsuario("usuario");
+        usuario.setSenha("senha");
+        usuario.setSalt("salt");
+        usuario.setNomeCompleto("nome completo");
+        usuario.setEmail("email");
+        usuario.setIdNivelAcesso(3);
+        usuario.setAtivo("ativo");
         usuarioDao.inserirDados(usuario);
         return true;
     }

@@ -33,7 +33,8 @@ public class UsuarioDao extends DaoGenerico<Usuario> {
             usuario.setId(rs.getInt("id"));
             usuario.setUsuario(rs.getString("usuario"));
             usuario.setSenha(rs.getString("senha"));
-            usuario.setNomeCompleto(rs.getString("nome_completo"));
+            usuario.setSalt(rs.getString("salt"));
+            usuario.setNomeCompleto(rs.getString("nome_completo")); 
             usuario.setEmail(rs.getString("email"));
             usuario.setIdNivelAcesso(rs.getInt("id_nivel_acesso"));
             usuario.setAtivo(rs.getString("ativo"));
@@ -76,7 +77,7 @@ public class UsuarioDao extends DaoGenerico<Usuario> {
 
     @Override
     public boolean inserirDados(Usuario entidade) {
-        String sql = " insert into usuario (usuario, senha,salt, nome_completo, email, id_nivel_acesso, ativo) values (?,?,?,?,?,?,?) ";
+        String sql = " insert into usuario (usuario,senha,salt,nome_completo,email,id_nivel_acesso,ativo) values (?,?,?,?,?,?,?) ";
 
         try {
             stmt = conexaoBanco.prepareStatement(sql);
