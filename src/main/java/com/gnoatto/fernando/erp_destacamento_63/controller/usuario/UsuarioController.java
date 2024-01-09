@@ -1,5 +1,6 @@
 package com.gnoatto.fernando.erp_destacamento_63.controller.usuario;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gnoatto.fernando.erp_destacamento_63.dao.usuario.UsuarioDao;
 import com.gnoatto.fernando.erp_destacamento_63.model.usuario.Usuario;
-
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -28,17 +28,18 @@ public class UsuarioController {
 
         return usuarios;
     }
+
     @PostMapping("/cadastrar")
-    public boolean cadastrarUsuario(@RequestBody Usuario usuario){
-        usuario.setUsuario("usuario");
-        usuario.setSenha("senha");
-        usuario.setSalt("salt");
-        usuario.setNomeCompleto("nome completo");
-        usuario.setEmail("email");
-        usuario.setIdNivelAcesso(3);
-        usuario.setAtivo("ativo");
+    public boolean cadastrarUsuario(@RequestBody Usuario usuario) throws SQLException {
         usuarioDao.inserirDados(usuario);
         return true;
+    }
+
+    @PostMapping("/desativar")
+    public boolean desativarUsuario(@RequestBody int id) throws SQLException {
+        usuarioDao.desativarUsuario(id);
+        return true;
+
     }
 
 }

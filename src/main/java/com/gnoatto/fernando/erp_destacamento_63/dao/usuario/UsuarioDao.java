@@ -34,7 +34,7 @@ public class UsuarioDao extends DaoGenerico<Usuario> {
             usuario.setUsuario(rs.getString("usuario"));
             usuario.setSenha(rs.getString("senha"));
             usuario.setSalt(rs.getString("salt"));
-            usuario.setNomeCompleto(rs.getString("nome_completo")); 
+            usuario.setNomeCompleto(rs.getString("nome_completo"));
             usuario.setEmail(rs.getString("email"));
             usuario.setIdNivelAcesso(rs.getInt("id_nivel_acesso"));
             usuario.setAtivo(rs.getString("ativo"));
@@ -108,6 +108,28 @@ public class UsuarioDao extends DaoGenerico<Usuario> {
     protected boolean removerDados(int id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removerDados'");
+    }
+
+    public boolean desativarUsuario(int id) {
+        String sql = " update usuario set ativo = 'Desativado' where id = (?) ";
+
+        try {
+            stmt = conexaoBanco.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.execute();
+            logger.info("Dados gravados com sucesso...");
+            return true;
+
+        } catch (SQLException ex) {
+            logger.log(Level.SEVERE, "Erro ao inserir dados no banco de dados... {0}", ex.getMessage());
+            return false;
+        } finally {
+            try {
+                stmt.close();
+            } catch (SQLException ex) {
+                logger.log(Level.SEVERE, "Erro ao fechar conexão com bando de dados... {0}", ex.getMessage());
+            }
+        }
     }
 
     @Override

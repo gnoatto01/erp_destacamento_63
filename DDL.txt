@@ -13,18 +13,21 @@ insert into nivel_acesso (privilegio) values ('Super-Admin')
 
 
 create table usuario (
-	id serial primary key, 
-	usuario varchar (30) default '-' not null, 
-	senha varchar (70) default '-' not null, 
-	salt varchar (70) default '-' not null,
-	nome_completo varchar (30) default '-' not null, 
-	email varchar (100) default '-' not null,
-	id_nivel_acesso int not null,
-	ativo varchar (20) default 'Ativo' not null,
-	
-	foreign key (id_nivel_acesso) references nivel_acesso(id)
-	
-);
+		id serial primary key, 
+		usuario varchar (30) default '-' not null , 
+		senha varchar (70) default '-' not null, 
+		salt varchar (70) default '-',
+		nome_completo varchar (70) default '-' not null, 
+		email varchar (100) default '-' not null,
+		id_nivel_acesso int not null,
+		ativo varchar (20) default 'Ativo',
+		
+		foreign key (id_nivel_acesso) references nivel_acesso(id)
+		
+	);
+
+insert into usuario (usuario,senha,salt,nome_completo,email,id_nivel_acesso,ativo) values
+('demo', 'demo','129k1','Demo','destacamento63expdorei@gmail.com', '3','Ativo' )
 
 create table candidato(
 	id serial primary key, 
@@ -51,11 +54,9 @@ create table candidato(
 	informacao_adicional text default '-', 
 	carta_recomendacao varchar (255) default '-' not null, 
 	autorizacao_atividade_externa varchar (10) default 'Sim' not null, 
-	autorizacao_atividade_interna varchar (10) default 'Sim' not null 
+	autorizacao_atividade_interna varchar (10) default 'Sim' not null,
+	ativo varchar (20) default 'Ativo'
 );
-
-
-
 
 
 
