@@ -58,6 +58,16 @@ create table candidato(
 	ativo varchar (20) default 'Ativo'
 );
 
+create table grupos(
+	id serial primary key,  
+	nome_grupo varchar(70) default '-' not null, 
+	descricao varchar (100) default '-' 
+);
+
+insert into grupos (nome_grupo) values ('Navegantes')
+insert into grupos (nome_grupo) values ('Descobridores')
+insert into grupos (nome_grupo) values ('Aventureiros')
+insert into grupos (nome_grupo) values ('Exploradores')
 
 
 
