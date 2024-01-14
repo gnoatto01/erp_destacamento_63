@@ -133,9 +133,31 @@ public class UsuarioDao extends DaoGenerico<Usuario> {
     }
 
     @Override
-    protected boolean alterarDados(Usuario entidade) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'alterarDados'");
+    public boolean alterarDados(Usuario entidade) {
+        String sql = " update usuario set usuario = ?, senha = ?, nome_completo = ?, email = ?, id_nivel_acesso = ?, ativo = ? where id = ? ";
+
+        try {
+            stmt = conexaoBanco.prepareStatement(sql);
+            stmt.setString(1, entidade.getUsuario());
+            stmt.setString(2, entidade.getSenha());
+            stmt.setString(3, entidade.getNomeCompleto());
+            stmt.setString(4, entidade.getEmail());
+            stmt.setInt(5, entidade.getIdNivelAcesso());
+            stmt.setString(6, entidade.getAtivo());
+            stmt.setInt(7, entidade.getId());
+            logger.info(sql);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            logger.log(Level.SEVERE, "Erro ao editar dados de usuário... {0}", ex.getMessage());
+            return false;
+        } finally {
+            try {
+                stmt.close();
+            } catch (SQLException ex) {
+                logger.log(Level.SEVERE, "Erro ao fechar conexão com banco de dados...{0}", ex.getMessage());
+            }
+        }
     }
 
 }

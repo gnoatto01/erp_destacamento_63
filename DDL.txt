@@ -69,8 +69,28 @@ insert into grupos (nome_grupo) values ('Descobridores')
 insert into grupos (nome_grupo) values ('Aventureiros')
 insert into grupos (nome_grupo) values ('Exploradores')
 
+create table comandante(
+	id serial primary key, 
+	nome_comandante varchar(70) default '-' not null,
+	contato_comandante varchar(40) default '-' not null,
+	email_comandante varchar(120) default '-'
+	
+);
 
-
+create table patrulha(
+	id serial primary key, 
+	nome_patrulha varchar(70) default '-' not null, 
+	descricao_patrulha varchar(100) default '-', 
+	id_comandante int not null, 
+	id_candidato int not null, 
+	id_grupo int not null, 
+	genero varchar(11) not null, 
+	ativo varchar(15) default 'Ativo',
+	
+	foreign key (id_comandante) references comandante(id), 
+	foreign key (id_candidato) references candidato(id), 
+	foreign key (id_grupo) references grupos(id)
+);
 
 
 
